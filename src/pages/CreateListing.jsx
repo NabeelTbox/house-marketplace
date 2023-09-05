@@ -63,7 +63,7 @@ function CreateListing() {
         }
       });
     }
- 
+
     return () => {
       isMounted.current = false;
     };
@@ -88,7 +88,7 @@ function CreateListing() {
     }
 
     let geolocation = {};
-    let location;
+    let location = null;
 
     if (geolocationEnabled) {
       const response = await fetch(
@@ -106,15 +106,17 @@ function CreateListing() {
           ? undefined
           : data.results[0]?.formatted_address;
 
-      if (location === undefined || location.includes("undefined")) {
-        console.log(location);
-        setLoading(false);
-        toast.error("Please enter a correct address");
-        return;
-      }
+      // if (location === undefined || location.includes("undefined")) {
+      //   console.log(location);
+      //   setLoading(false);
+      //   toast.error("Please enter a correct address");
+        // return;
+      // }
     } else {
-      geolocation.lat = latitude;
-      geolocation.lng = longitude;
+      geolocation.lat = 0;
+      geolocation.lng = 0;
+      // geolocation.lat = latitude;
+      // geolocation.lng = longitude;
     }
 
     // Store image in firebase
@@ -345,7 +347,6 @@ function CreateListing() {
             id="address"
             value={address}
             onChange={onMutate}
-            required
           />
 
           {!geolocationEnabled && (
