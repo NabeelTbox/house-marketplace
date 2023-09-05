@@ -47,12 +47,10 @@ function Listing() {
       <Helmet>
         <title>{listing.name}</title>
       </Helmet>
-      <Swiper 
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      navigation
-      slidesPerView={1}
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        pagination={{ clickable: true }}
+        slidesPerView={1}
       >
         {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index}>
@@ -155,5 +153,3 @@ function Listing() {
 }
 
 export default Listing;
-
-

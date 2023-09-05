@@ -31,7 +31,7 @@ function App() {
           <Route element={<SignIn />} path="/signin" />
           <Route element={<SignUp />} path="/signup" />
           <Route element={<CreateListing />} path="/create-listing" />
-          <Route element={<EditListing/>} path="/edit-listing" />
+          <Route element={<EditListing/>} path="/edit-listing/:listingId" />
           <Route
             path="/category/:categoryName/:listingId"
             element={<Listing />}
